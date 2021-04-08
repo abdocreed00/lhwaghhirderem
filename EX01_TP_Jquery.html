@@ -1,0 +1,220 @@
+<html>
+<head>
+	<style>
+		#bloc_page {
+					width : 90%;
+					margin : auto;
+					position : relative;
+					}
+		h1{
+			text-align: center;
+		}
+		#devise{
+			margin-bottom: 10px;
+			        width : 100%;
+
+               }
+        #devise select{
+        	width : 100%;
+        }
+        #main{
+        	position : relative;
+
+        }
+       	#info_client{
+       		width : 40%;
+            float : left;
+            margin-bottom: 10px;
+       	}
+       	#info_client input{
+           width: 85%;
+       	}
+       	#div_log{
+       		  height:85px;
+       		   background-color:gray;
+       		   display: table;
+       		   text-align: center;
+       		   width: 85%;
+       		   		}
+        .logo{
+        	display: table-cell;
+        	vertical-align: middle;
+        }
+       	#facture{
+       		width : 30%;
+       		float : right;
+       	}
+       	#produit {
+       		clear : both;
+
+       	}
+
+       	#produit table{
+       		width:  100%;       		
+
+       	}
+       	#produit table thead {
+            text-align: center;
+       	}
+       	#produit table input, 	#produit table output{
+       		width:  90%;
+       		
+       	}
+       	#add{
+          background-color: gray;
+          text-align: center;
+          width: 60%;
+       	}
+       	#add span {
+       		vertical-align: middle ;
+       	}
+       	#add img {
+       		vertical-align: inherit;
+       	}
+       	#totaux table {
+       		margin-top: 10px;
+       	}
+       	#totaux table {
+       		float : right;
+       	}
+       	#note{
+       		clear : both;
+       		margin-bottom: 10px;
+       	}
+       	#note select {
+       		width : 100%;
+       	}
+
+       	footer{
+       		clear : both ;
+       		text-align: center;
+       	}
+       	#save{
+       		background-color: gray;
+            display: inline-block;
+            padding: 5px;
+            border-radius : 3px;
+       		
+       	} 
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="Facture.js"></script>
+</head>
+<body>
+	<div id="bloc_page">
+		<header>
+		<h1>Facture d'achats</h1>
+	   </header> 
+		<div id="devise">
+			<label for="devi" > Devise:</label>
+			<select id="devi"></select>
+		</div>
+		<div id="main">
+			<div id="info_client">
+              <div id="div_log" onclick="document.getElementById('file').click();" >
+              	<span class="logo">
+                <img src="plus.png" style="vertical-align:middle " width="45px" height="45px"  alt="plus" />Ajouter votre logo</span>
+               </div>
+               <input  type="file" style="display:none;" id="file" name="file"/><br/>
+               <input type="text" name="nom" placeholder="ALI samadi" /><br/>
+               <label for="Adresse">Adresse</label><br/>
+               <input type="text" name="adresse" id="adresse" placeholder="" />
+			</div>
+			<!--<div id="facture">
+				<table>
+					<tr>
+						<td>
+						N° Facture 
+						</td>
+						<td>
+							<input type="text" placeholder="0001/2019" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Date facture
+						</td>
+						<td>
+							<input type="text" placeholder="14/02/2019" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span style="background-color:white">Solde dû </span> <output id="solde_du">MAD 84</output>
+						</td>
+					</tr>
+				</table>	
+			</div>
+
+		</div>
+		<div id="produit">
+			<table>
+				<thead>
+					<tr>
+						<th>Produit</th>
+						<th>Quantité</th>
+						<th>Prix unitaire</th>
+						<th>Total:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="product">
+						<td><input type="text" class="produit"></td>
+						<td><input type="text" class="Quantité"></td>
+						<td><input type="text" class="PU"></td>
+						<td><output class="total"><span ></span> <img src="supp.png" width="20" height="20" alt="del" class="delete" style="vertical-align: middle" /></output></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>
+					<div  id="add">
+					<span><img src="plus.png"  width="30px" height="30"  alt="plus" />Nouveau produit </span>
+					</div>
+				</td>
+				<td>
+			    </td>
+			</tr>
+				</tfoot>
+			</table>
+		</div>
+		<div id="totaux">
+          <table>
+          	<tr>
+          		<td><label for="tot" >Total</label></td>
+          		<td> <input id="tot" type="text" class="tot"></td>
+          	</tr>
+          	<tr>
+          		<td><label for="solde" >Solde %</label></td>
+          		<td> <input id="solde" type="text" class="solde"></td>
+          	</tr>
+          	<tr>
+          		<td><label for="taxe" >Taxe</label></td>
+          		<td> <input id="taxe" type="text" class="taxe"></td>
+          	</tr>
+          	<tr>
+          		<td><label for="livraison" >Frais de livraison</label></td>
+          		<td> <input id="livraison" type="text" class="livraison"></td>
+          	</tr>
+          	<tr>
+          		<td><label for="tot_final" >Total</label></td>
+          		<td> <output id="tot_final"  class="tot_final"> MAD </output></td>
+          	</tr>
+          	<tr>
+          		<td><label for="mnt_paye" >Montant payé</label></td>
+          		<td> <input id="mnt_paye" type="text" class="mnt_paye"></td>
+          	</tr>
+          </table>
+		</div>
+		<div id="Note">
+			<label for="note" > Notes:</label>
+			<select id="note"></select>
+		</div>
+		<footer>
+		<div id="save">
+				<span>	<img src="save.png" style="vertical-align:middle   alt="plus" />Enregistrer la facture</span>
+					</div>
+		</footer>
+	</div> -->
+</body>
+</html>
